@@ -1,0 +1,12 @@
+{
+	"name": "wpaaruptimesheets",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureTableStorage",
+		"typeProperties": {
+			"sasUri": "https://pmware.table.core.windows.net/wpaaruptimesheets",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFSVVAtVE5SREVWLURBVEFGQUNUT1JZXzExZjg2OTI5LTgwZjktNGIyYy1hMDRhLTcyODBhMjZlZjQ1ZiINCn0="
+		}
+	}
+}
