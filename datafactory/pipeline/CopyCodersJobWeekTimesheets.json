@@ -54,41 +54,6 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"path": "WeekEndingDate"
-								},
-								"sink": {
-									"name": "WeekEndingDate"
-								}
-							},
-							{
-								"source": {
-									"path": "Adhguid"
-								},
-								"sink": {
-									"name": "Adhguid"
-								}
-							},
-							{
-								"source": {
-									"path": "StaffUpn"
-								},
-								"sink": {
-									"name": "StaffUpn"
-								}
-							},
-							{
-								"source": {
-									"path": "JobRef"
-								},
-								"sink": {
-									"name": "JobRef"
-								}
-							}
-						],
-						"collectionReference": "",
 						"mapComplexValuesToString": false
 					}
 				},
@@ -128,6 +93,52 @@
 					},
 					"body": "client_id=993cca80-d223-4452-9942-bdcdc0009a37\n&refresh_token=AQABAAAAAAAGV_bv21oQQ4ROqh0_1-tApoqPuHwUuuxSdnJ0eTYWkx_DUgVZVCTQZMu6XfqbekXhCc4H5x4RJ1PZlvnMK2CfH7uxVLmQNMYdNHhE6Cgg5h0Fn9m-lxGyPYgJXL9f_-1HKdLqK_QsJf2IGN0X-NGpbLEmbmKZsBzs6E5Ew8O019KjtKm7s2ZXlVVAOoLca57d9g48DYBrgQpf_xfQfwoh6MndQ2oE9QyMAYjNpvjrwW7mfkGAmZFS9UzdDMzlboDeYK4vBJcCgle0Wmq3_7wrNhGChDTNqG4jxwqsYKerR_Vt35iPCYCkHZ_5-lcl4iMsPHmvDIR7mG9LlQeIgrVG4a6wY7Ou47oc50Xnb9IO6PN2F5hSPIsj_c5sLlkvBPg9yCewFfLsgzuspgjh0ZZehWmZ2qXPUXtvhIDSFs1rSZj-f65ZEJtNIZQIFb-LbGjmbFzD_6O1KDNL8PiXAUV6n9Qi2ol4oxkFjj8v4n0jSgAIwEMHpKzP9zLgynWaXzpURsjI8M6Li07PB3JH1JSfywLCx0RRiYyzzyICFU7GxnRC_xf6jJgsNeyukv6cteH3aof4cM2QXaX5WNHwHxmv2ALbNkbMoLLhKY5EJCdkCOv3jGzZbauS9esCIyPUyRsdUuBOsb2lqn8WWEcRiF9BgrK6lWef0xzJU67akYz2ezHk17VS-NRjDl41BmTr983p3IUYdQlFgy2ofYbof7bwYpnpm74Z44jMCBPjtKKVwAwPY34MlmipcBjsPDHJwNiEXWi1ke81pDAZpPhJAaH5JBakUSGPI3aHKp5TCIRDWi25l1jYuhM_mkVWVSAoP_crnqH8mVULnw9I0DWgL4TVU2mdwtSFmaL69LtHadDIA4v9CsjVLR9-FJ1MVhzeiCC6roFDoVgV8DZKkDHZzeVPACIz5ljFS6uJFOp785zCvQbKc8ssyfLrk-4QfcVLIExI8-IAjtbla5J5lteGi35EVEaNB2jOwNn3nOKZOPH9G5X--qlTbY-m5hZXuvoZfp7pUXGO_XSAMN9beSh5hE45Uv0T7UL0HjamGufUQTPBy0j-RhtzLPagg4G0veh2d_MnEXgfeQM9MYd-lgN9fCSPM7MoPmRtDURrIHAPwsYrh-gOQ-puGSB0LP6JKHoCAQogAA\n&grant_type=refresh_token\n&client_secret=.25KY52-_eYIp6_9F_8V8lVLgD_N2uMQPi"
 				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"additionalHeaders": {
+							"Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imh1Tjk1SXZQZmVocTM0R3pCRFoxR1hHaXJuTSIsImtpZCI6Imh1Tjk1SXZQZmVocTM0R3pCRFoxR1hHaXJuTS\nJ9.eyJhdWQiOiJodHRwczovL2FydXAub25taWNyb3NvZnQuY29tL0FJUyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzRhZTQ4YjQxLTAxMzctNDU5OS04NjY\nxLWZjNjQxZmU3N2JlYS8iLCJpYXQiOjE1OTQzOTYzOTAsIm5iZiI6MTU5NDM5NjM5MCwiZXhwIjoxNTk0NDAwMjkwLCJfY2xhaW1fbmFtZXMiOnsiZ3JvdXBzIjoic3JjM\nSJ9LCJfY2xhaW1fc291cmNlcyI6eyJzcmMxIjp7ImVuZHBvaW50IjoiaHR0cHM6Ly9ncmFwaC53aW5kb3dzLm5ldC80YWU0OGI0MS0wMTM3LTQ1OTktODY2MS1mYzY0MWZ\nlNzdiZWEvdXNlcnMvOGY4YTU4ZWQtMDZhOC00ZWFmLWE3MDctNjNjMTgzOGZiOWU0L2dldE1lbWJlck9iamVjdHMifX0sImFjciI6IjEiLCJhaW8iOiJFMkJnWUhoNDRDY\nXp3RCtUdk50aGhndFc4dXB1VmRnb3NmSndoTXNLbmNpZGhpWTZGWjhBIiwiYW1yIjpbInB3ZCIsInJzYSJdLCJhcHBpZCI6Ijk5M2NjYTgwLWQyMjMtNDQ1Mi05OTQyLWJ\nkY2RjMDAwOWEzNyIsImFwcGlkYWNyIjoiMSIsImRldmljZWlkIjoiNGUzNzg4NTItMWEyZi00MzAyLThiYjgtOTI4N2Y5YjM4NmI2IiwiZmFtaWx5X25hbWUiOiJMb25le\nSIsImdpdmVuX25hbWUiOiJUcmV2b3IiLCJpcGFkZHIiOiIxMDEuMTg2LjE0My4xMzAiLCJuYW1lIjoiVHJldm9yIExvbmV5Iiwib2lkIjoiOGY4YTU4ZWQtMDZhOC00ZWF\nmLWE3MDctNjNjMTgzOGZiOWU0Iiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTUxNTk2Nzg5OS00OTI4OTQyMjMtNzI1MzQ1NTQzLTg0OTc2MiIsInNjcCI6InVzZXJfaW1wZ\nXJzb25hdGlvbiIsInN1YiI6IjlFUUFCTHZFcHd3V0Rua0xxM1Z0RVczUEtRcWJwczRGQXU1MWU1R3JBR0kiLCJ0aWQiOiI0YWU0OGI0MS0wMTM3LTQ1OTktODY2MS1mYzY\n0MWZlNzdiZWEiLCJ1bmlxdWVfbmFtZSI6IlRyZXZvci5Mb25leUBhcnVwLmNvbSIsInVwbiI6IlRyZXZvci5Mb25leUBhcnVwLmNvbSIsInV0aSI6InRsZU5sZjU4OUUyN\nmZTTFNKeHNCQUEiLCJ2ZXIiOiIxLjAifQ.e_-O_EU8ZQB04VqG-1Od1HShtHhbG6zUWgfd7A7reAKs4OIRJQt8aGJ0uACc3qcSQhnFNyaGcs2zzUlENVAil9hB9Jd368IG\nJ-gV_Xm4PcYOQ1PBaRiTOFXj30yYnbQwGB989Nhq6mwq9Jdqr6-9_iNm2eR8VHoTE677zFL8hGmnjSV0DKWaHKG4Nhp3fyO2qaxa_ocmx2jvstw6K4rgZwnDYdPXoBhZlc\nxwQ53b2HY6Wm1g8regeKJUYsYZzcU43iX7IZRZ9xJXC_NSy67X5GgPbnm03Tvqbn4132pd1M7TrZ5e33d4FvjpJckYm55nHWXRwI9l6G7f8NvIzpwXUA",
+							"Ocp-Apim-Subscription-Key": "d6868fbeb77747dd93d7dd6522ee8663"
+						}
+					},
+					"sink": {
+						"type": "AzureTableSink",
+						"azureTableInsertType": "merge",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "JobWeekTimeSheets",
+						"type": "DatasetReference",
+						"parameters": {
+							"JobCode": "08016031"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "wpaaruptimesheets",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
