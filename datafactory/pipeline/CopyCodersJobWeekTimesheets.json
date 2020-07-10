@@ -82,6 +82,9 @@
 							{
 								"source": {
 									"path": "$['JobRef']"
+								},
+								"sink": {
+									"name": "JobRef"
 								}
 							}
 						],
