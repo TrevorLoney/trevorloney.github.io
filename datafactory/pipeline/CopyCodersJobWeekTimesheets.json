@@ -57,7 +57,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['WeekEndingDate']"
+									"path": "WeekEndingDate"
 								},
 								"sink": {
 									"name": "WeekEndingDate"
@@ -65,7 +65,7 @@
 							},
 							{
 								"source": {
-									"path": "$['Adhguid']"
+									"path": "Adhguid"
 								},
 								"sink": {
 									"name": "Adhguid"
@@ -73,7 +73,7 @@
 							},
 							{
 								"source": {
-									"path": "$['StaffUpn']"
+									"path": "StaffUpn"
 								},
 								"sink": {
 									"name": "StaffUpn"
@@ -81,7 +81,7 @@
 							},
 							{
 								"source": {
-									"path": "$['JobRef']"
+									"path": "JobRef"
 								},
 								"sink": {
 									"name": "JobRef"
@@ -89,7 +89,7 @@
 							}
 						],
 						"collectionReference": "",
-						"mapComplexValuesToString": true
+						"mapComplexValuesToString": false
 					}
 				},
 				"inputs": [
