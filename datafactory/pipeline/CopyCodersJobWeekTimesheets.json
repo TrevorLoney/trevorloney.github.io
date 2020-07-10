@@ -13,7 +13,12 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Skip",
+						"value": "0"
+					}
+				],
 				"typeProperties": {
 					"url": "https://login.microsoftonline.com/4ae48b41-0137-4599-8661-fc641fe77bea/oauth2/token",
 					"method": "POST",
@@ -72,7 +77,14 @@
 			{
 				"name": "Until1",
 				"type": "Until",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "RefreshToken",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
@@ -101,34 +113,18 @@
 					],
 					"timeout": "7.00:00:00"
 				}
-			},
-			{
-				"name": "Skip",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "RefreshToken",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": []
-			},
-			{
-				"name": "InitialiseSkip",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "Skip",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": []
 			}
 		],
+		"variables": {
+			"Skip": {
+				"type": "String",
+				"defaultValue": "0"
+			},
+			"LastResult": {
+				"type": "Array",
+				"defaultValue": []
+			}
+		},
 		"annotations": []
 	}
 }
