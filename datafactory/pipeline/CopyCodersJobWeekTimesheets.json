@@ -37,7 +37,11 @@
 						"requestInterval": "00.00:00:00.010",
 						"requestMethod": "GET",
 						"additionalHeaders": {
-							"Ocp-Apim-Subscription-Key": "d6868fbeb77747dd93d7dd6522ee8663"
+							"Ocp-Apim-Subscription-Key": "d6868fbeb77747dd93d7dd6522ee8663",
+							"": {
+								"value": "Bearer (json(@activity('RefreshToken').output)).access_token",
+								"type": "Expression"
+							}
 						}
 					},
 					"sink": {
