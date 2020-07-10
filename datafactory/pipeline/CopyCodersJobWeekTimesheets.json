@@ -47,9 +47,64 @@
 					"sink": {
 						"type": "AzureTableSink",
 						"azureTableInsertType": "merge",
+						"azureTablePartitionKeyName": "PartitionKey",
+						"azureTableRowKeyName": "RowKey",
 						"writeBatchSize": 10000
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['WeekNum']"
+								},
+								"sink": {
+									"name": "PartitionKey"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Adhid']"
+								},
+								"sink": {
+									"name": "RowKey"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Hours']"
+								},
+								"sink": {
+									"name": "Hours"
+								}
+							},
+							{
+								"source": {
+									"path": "$['StaffId']"
+								},
+								"sink": {
+									"name": "StaffId"
+								}
+							},
+							{
+								"source": {
+									"path": "$['StaffUpn']"
+								},
+								"sink": {
+									"name": "StaffUpn"
+								}
+							},
+							{
+								"source": {
+									"path": "$['WeekEndingDate']"
+								},
+								"sink": {
+									"name": "WeekEndingDate"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
