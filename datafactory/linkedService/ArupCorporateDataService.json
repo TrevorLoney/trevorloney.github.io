@@ -6,7 +6,8 @@
 		"typeProperties": {
 			"url": "https://adsprapiman-aue.azure-api.net/cds/odata/",
 			"enableServerCertificateValidation": false,
-			"authenticationType": "Anonymous"
+			"authenticationType": "ManagedServiceIdentity",
+			"aadResourceId": "https://login.microsoftonline.com/4ae48b41-0137-4599-8661-fc641fe77bea/oauth2/token"
 		}
 	}
 }
