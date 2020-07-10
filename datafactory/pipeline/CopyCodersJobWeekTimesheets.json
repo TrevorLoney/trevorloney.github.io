@@ -47,8 +47,8 @@
 					"sink": {
 						"type": "AzureTableSink",
 						"azureTableInsertType": "merge",
-						"azureTablePartitionKeyName": "PartitionKey",
-						"azureTableRowKeyName": "RowKey",
+						"azureTablePartitionKeyName": "WeekNum",
+						"azureTableRowKeyName": "AdhId",
 						"writeBatchSize": 10000
 					},
 					"enableStaging": false,
@@ -60,7 +60,7 @@
 									"path": "$['WeekNum']"
 								},
 								"sink": {
-									"name": "PartitionKey"
+									"name": "WeekNum"
 								}
 							},
 							{
@@ -68,7 +68,7 @@
 									"path": "$['Adhid']"
 								},
 								"sink": {
-									"name": "RowKey"
+									"name": "AdhId"
 								}
 							},
 							{
