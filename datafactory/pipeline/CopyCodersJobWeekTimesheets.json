@@ -72,14 +72,7 @@
 			{
 				"name": "Until1",
 				"type": "Until",
-				"dependsOn": [
-					{
-						"activity": "InitialiseSkip",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
@@ -110,7 +103,7 @@
 				}
 			},
 			{
-				"name": "InitialiseSkip",
+				"name": "Skip",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -120,16 +113,22 @@
 						]
 					}
 				],
-				"userProperties": [
+				"userProperties": []
+			},
+			{
+				"name": "InitialiseSkip",
+				"type": "SetVariable",
+				"dependsOn": [
 					{
-						"name": "Skip",
-						"value": "0"
+						"activity": "Skip",
+						"dependencyConditions": [
+							"Succeeded"
+						]
 					}
-				]
+				],
+				"userProperties": []
 			}
 		],
-		"annotations": [
-			"Test"
-		]
+		"annotations": []
 	}
 }
