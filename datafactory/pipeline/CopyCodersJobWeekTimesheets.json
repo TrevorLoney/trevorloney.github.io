@@ -3,77 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ACDS2Table",
-				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "RefreshToken",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [
-					{
-						"name": "Source",
-						"value": "JobWeekTimesheets?$filter=JobCode eq '@'08016031''"
-					},
-					{
-						"name": "Destination",
-						"value": "wpaaruptimesheets"
-					}
-				],
-				"typeProperties": {
-					"source": {
-						"type": "RestSource",
-						"httpRequestTimeout": "00:01:40",
-						"requestInterval": "00.00:00:00.010",
-						"requestMethod": "GET",
-						"additionalHeaders": {
-							"Ocp-Apim-Subscription-Key": "d6868fbeb77747dd93d7dd6522ee8663",
-							"Authorization": {
-								"value": "@concat('Bearer ', activity('RefreshToken').output.access_token)",
-								"type": "Expression"
-							}
-						}
-					},
-					"sink": {
-						"type": "AzureTableSink",
-						"azureTableInsertType": "merge",
-						"azureTablePartitionKeyName": "WeekEndingDate",
-						"azureTableRowKeyName": "Adhguid",
-						"writeBatchSize": 10000
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"mapComplexValuesToString": false
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "JobWeekTimeSheets",
-						"type": "DatasetReference",
-						"parameters": {
-							"JobCode": "08016031"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "wpaaruptimesheets",
-						"type": "DatasetReference"
-					}
-				]
-			},
-			{
 				"name": "RefreshToken",
 				"type": "WebActivity",
 				"dependsOn": [],
@@ -143,12 +72,23 @@
 			{
 				"name": "Until1",
 				"type": "Until",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "InitialiseSkip",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
+					"expression": {
+						"value": "@empty(activity('Web1').output)",
+						"type": "Expression"
+					},
 					"activities": [
 						{
-							"name": "Web1",
+							"name": "JobTimeSheets",
 							"type": "WebActivity",
 							"dependsOn": [],
 							"policy": {
@@ -160,6 +100,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"method": "GET",
 								"linkedServices": [],
 								"datasets": []
 							}
@@ -167,8 +108,28 @@
 					],
 					"timeout": "7.00:00:00"
 				}
+			},
+			{
+				"name": "InitialiseSkip",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "RefreshToken",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [
+					{
+						"name": "Skip",
+						"value": "0"
+					}
+				]
 			}
 		],
-		"annotations": []
+		"annotations": [
+			"Test"
+		]
 	}
 }
