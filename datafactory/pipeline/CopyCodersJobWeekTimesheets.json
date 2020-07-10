@@ -38,8 +38,8 @@
 						"requestMethod": "GET",
 						"additionalHeaders": {
 							"Ocp-Apim-Subscription-Key": "d6868fbeb77747dd93d7dd6522ee8663",
-							"": {
-								"value": "Bearer (json(@activity('RefreshToken').output)).access_token",
+							"Authorization": {
+								"value": "@concat('Bearer ', activity('RefreshToken').output.access_token)",
 								"type": "Expression"
 							}
 						}
