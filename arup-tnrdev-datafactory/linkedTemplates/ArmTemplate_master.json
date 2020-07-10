@@ -1,0 +1,63 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "arup-tnrdev-datafactory"
+		},
+		"ArupCorporateDataService_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adsprapiman-aue.azure-api.net/cds/odata/"
+		},
+		"ArupCorporateDataService_properties_typeProperties_aadResourceId": {
+			"type": "string",
+			"defaultValue": "993cca80-d223-4452-9942-bdcdc0009a37"
+		},
+		"wpaaruptimesheets_sasUri": {
+			"type": "secureString",
+			"metadata": "Secure string for 'sasUri' of 'wpaaruptimesheets'"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ArupCorporateDataService_properties_typeProperties_url": {
+						"value": "[parameters('ArupCorporateDataService_properties_typeProperties_url')]"
+					},
+					"ArupCorporateDataService_properties_typeProperties_aadResourceId": {
+						"value": "[parameters('ArupCorporateDataService_properties_typeProperties_aadResourceId')]"
+					},
+					"wpaaruptimesheets_sasUri": {
+						"value": "[parameters('wpaaruptimesheets_sasUri')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
