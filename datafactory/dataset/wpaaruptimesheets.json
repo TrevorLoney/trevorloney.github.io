@@ -1,0 +1,15 @@
+{
+	"name": "wpaaruptimesheets",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "wpaaruptimesheets",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "wpaaruptimesheets"
+		}
+	}
+}
