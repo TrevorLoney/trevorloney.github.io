@@ -47,8 +47,8 @@
 					"sink": {
 						"type": "AzureTableSink",
 						"azureTableInsertType": "merge",
-						"azureTablePartitionKeyName": "WeekNum",
-						"azureTableRowKeyName": "AdhId",
+						"azureTablePartitionKeyName": "WeekEndingDate",
+						"azureTableRowKeyName": "Adhguid",
 						"writeBatchSize": 10000
 					},
 					"enableStaging": false,
@@ -57,34 +57,18 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['WeekNum']"
+									"path": "$['WeekEndingDate']"
 								},
 								"sink": {
-									"name": "WeekNum"
+									"name": "WeekEndingDate"
 								}
 							},
 							{
 								"source": {
-									"path": "$['Adhid']"
+									"path": "$['Adhguid']"
 								},
 								"sink": {
-									"name": "AdhId"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Hours']"
-								},
-								"sink": {
-									"name": "Hours"
-								}
-							},
-							{
-								"source": {
-									"path": "$['StaffId']"
-								},
-								"sink": {
-									"name": "StaffId"
+									"name": "Adhguid"
 								}
 							},
 							{
@@ -97,13 +81,12 @@
 							},
 							{
 								"source": {
-									"path": "$['WeekEndingDate']"
-								},
-								"sink": {
-									"name": "WeekEndingDate"
+									"path": "$['JobRef']"
 								}
 							}
-						]
+						],
+						"collectionReference": "",
+						"mapComplexValuesToString": true
 					}
 				},
 				"inputs": [
