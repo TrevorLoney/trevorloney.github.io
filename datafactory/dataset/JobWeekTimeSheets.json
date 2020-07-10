@@ -15,7 +15,7 @@
 		"type": "RestResource",
 		"typeProperties": {
 			"relativeUrl": {
-				"value": "JobWeekTimesheets?$filter=JobCode eq '@dataset().JobCode'",
+				"value": "@concat('JobWeekTimesheets?$filter=JobCode eq ''', dataset().JobCode, '''')",
 				"type": "Expression"
 			}
 		},
