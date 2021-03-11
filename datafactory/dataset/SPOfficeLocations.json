@@ -1,5 +1,5 @@
 {
-	"name": "SharePointOnlineListResource1",
+	"name": "SPOfficeLocations",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SharePointOnlineList1",
