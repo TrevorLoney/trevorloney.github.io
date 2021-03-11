@@ -1,0 +1,35 @@
+{
+	"name": "LocationsWeeklyUpdate",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "LocationFlowPipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Week",
+				"interval": 1,
+				"startTime": "2021-03-11T07:49:00Z",
+				"timeZone": "UTC",
+				"schedule": {
+					"minutes": [
+						36
+					],
+					"hours": [
+						16
+					],
+					"weekDays": [
+						"Sunday"
+					]
+				}
+			}
+		}
+	}
+}
