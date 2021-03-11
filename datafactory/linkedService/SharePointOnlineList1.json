@@ -1,0 +1,14 @@
+{
+	"name": "SharePointOnlineList1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SharePointOnlineList",
+		"typeProperties": {
+			"siteUrl": "https://arup.sharepoint.com/sites/TnRDigital_39-200/ACDS/",
+			"tenantId": "4ae48b41-0137-4599-8661-fc641fe77bea",
+			"servicePrincipalId": "212347c5-31d8-414d-be02-deee58538a97",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFSVVAtVE5SREVWLURBVEFGQUNUT1JZXzMzZjM0YWMyLTRkYTQtNDc3Zi05YjVmLWU1NGQ4N2IyZWE5MCINCn0="
+		}
+	}
+}
