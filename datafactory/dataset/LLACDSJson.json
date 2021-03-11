@@ -9,7 +9,10 @@
 		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Locations.json",
+				"folderPath": "ACDS",
+				"container": "$web"
 			}
 		},
 		"schema": {}
