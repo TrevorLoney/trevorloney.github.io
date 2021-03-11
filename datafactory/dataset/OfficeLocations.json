@@ -1,0 +1,18 @@
+{
+	"name": "OfficeLocations",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ArupCorporateDataService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": {
+				"value": "Locations?$filter=Active eq 1 and LocationType eq 'Office'",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	}
+}
