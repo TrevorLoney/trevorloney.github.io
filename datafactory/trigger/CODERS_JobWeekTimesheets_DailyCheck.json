@@ -3,20 +3,13 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "CopyCodersJobWeekTimesheets",
-					"type": "PipelineReference"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2020-07-10T14:02:00.000Z",
+				"startTime": "2020-07-10T14:02:00Z",
 				"timeZone": "UTC"
 			}
 		}
